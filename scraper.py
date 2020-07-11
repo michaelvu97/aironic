@@ -26,4 +26,17 @@ el_form = driver.find_element_by_css_selector("main form")
 
 el_form.submit()
 
-# driver.close()
+time.sleep(3)
+
+instagram_accounts_list = [ 
+	"jokers_quotes_"
+]
+
+for account_id in instagram_accounts_list:
+	driver.get("https://www.instagram.com/" + account_id)
+	el_images = driver.find_elements_by_css_selector("article img[src]")
+
+	for el_image in el_images:
+		print(el_image.get_attribute("src"))
+
+	# driver.close()
